@@ -1,0 +1,3 @@
+FLASK_APP=interanimos.py
+FLASK_RUN_PORT=3000
+FLASK_DEBUG=1

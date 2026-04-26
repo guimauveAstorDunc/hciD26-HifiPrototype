@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="workspace-container">
+    <!-- Top-left toggle button -->
+    <div class="toggle-container">
+        <button class="toggle-btn" title="Switch between JS and Route-based tabs">JS/Routes</button>
+    </div>
+    
+    <!-- Tabs row -->
+    <div class="tabs-container">
+        <a href="{{ url_for('main.switch_tab', tab_name='File') }}" class="tab {% if tabs and tabs[0].name == 'File' %}active{% endif %}">File</a>
+        <a href="{{ url_for('main.switch_tab', tab_name='Bones') }}" class="tab {% if tabs and tabs[1].name == 'Bones' %}active{% endif %}">Bones</a>
+        <a href="{{ url_for('main.switch_tab', tab_name='Skin') }}" class="tab">Skin</a>
+        <a href="{{ url_for('main.switch_tab', tab_name='Constraints') }}" class="tab">Constraints</a>
+        <a href="{{ url_for('main.switch_tab', tab_name='Testing') }}" class="tab">Testing</a>
+        <a href="{{ url_for('main.switch_tab', tab_name='Controls/Gizmos') }}" class="tab">Controls/Gizmos</a>
+    </div>
+    
+    <!-- Main content area -->
+    <div class="main-workspace">
+        <!-- Left panel: Tab content + Objects & Operations -->
+        <div class="left-panel">
+            <!-- Tab content area -->
+            <div class="tab-content">
+                <!-- File Tab Content -->
+                <div class="button-group">
+                    <button class="action-btn">Save</button>
+                    <button class="action-btn">Save As...</button>
+                    <button class="action-btn">Rename Project</button>
+                </div>
+                
+                <!-- Bones Tab Content -->
+                <div class="button-group">
+                    <button class="action-btn">Add Rig</button>
+                    <button class="action-btn">Add Bone</button>
+                    <button class="action-btn">Add Arm</button>
+                    <button class="action-btn">Add Leg</button>
+                    <button class="action-btn">Add IK Chain</button>
+                </div>
+                
+                <!-- Skin, Constraints, Testing, Controls/Gizmos tabs are blank -->
+            </div>
+            
+            <!-- Objects & Operations panel -->
+            <div class="objects-operations">
+                <h3>Objects & Operations</h3>
+            </div>
+        </div>
+        
+        <!-- Right panel: Placeholder for 3D viewport + Info button -->
+        <div class="right-panel">
+            <div class="viewport-placeholder">
+                <p>3D Viewport Area</p>
+                <p>(Coming Soon)</p>
+            </div>
+            
+            <!-- Info button -->
+            <div class="info-container">
+                <button class="info-btn">Info</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

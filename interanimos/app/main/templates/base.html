@@ -1,0 +1,34 @@
+<html>
+    <head>
+        {% if title %}
+            <title>{{ title }}</title>
+        {% else %}
+            <title>InteraNimos</title>
+        {% endif %}
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    </head>
+    
+    <body>
+        <div class="nav-container">
+            <table>
+                <tr>
+                    <td><a href="{{ url_for('main.index') }}" class="navbutton">Home</a></td>
+                </tr>
+            </table>
+        </div>
+        <br>
+        <div>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            {% for message in messages %}
+                <div style="height: 20px"></div>
+                <div class='flash-container'>{{ message }}</div>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+            
+            {% block content %} {% endblock %}
+            <br>
+        </div>
+    </body>
+</html>
