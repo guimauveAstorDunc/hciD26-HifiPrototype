@@ -12,7 +12,7 @@ TAB_NAMES = ['File', 'Bones', 'Skin', 'Constraints', 'Testing', 'Controls/Gizmos
 def index():
     query = sqla.select(TabType)
     tabs = db.session.scalars(query).all()
-    return render_template('index.html', title='InteraNimos - Rigging Workspace', tabs=tabs)
+    return render_template('index.html', title='Interanimos - Rigging Workspace', tabs=tabs)
 
 @main.route('/tab/<tab_name>')
 def switch_tab(tab_name):

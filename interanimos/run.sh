@@ -1,5 +1,5 @@
 #!/bin/bash
-# Run InteraNimos Flask application
+# Run Interanimos Flask application
 
 cd "$(dirname "$0")"
 

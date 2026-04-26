@@ -1,3 +1,4 @@
+from config import Config
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
@@ -14,5 +15,8 @@ def create_app(config_class):
     
     app.register_blueprint(main_blueprint)
     app.register_blueprint(error_blueprint)
+
+    main_blueprint.template_folder = Config.TEMPLATE_FOLDER_MAIN
+    error_blueprint.template_folder = Config.TEMPLATE_FOLDER_ERRORS
     
     return app
