@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+<!-- Telling the Workspace that the Bones Tab is Active when This Page is Loaded -->
+        <!-- Understanding of Nameable Blocks from Google AI Overview. -->
+{% block file_tab_status %}active{% endblock %}
+
+{% block file_tab_btns %}
+<!-- File Tab Content -->
+<div class="button-group">
+    <button class="action-btn">Save</button>
+    <button class="action-btn">Save As...</button>
+    <button class="action-btn">Rename Project</button>
+</div>
+{% endblock %}

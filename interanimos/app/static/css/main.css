@@ -9,31 +9,23 @@ body {
 }
 
 .nav-container {
-    background-color: #333;
+    display: grid;
+    grid-template-columns: 1fr 126px;
+    grid-template-rows: 42px 84px;
+    grid-template-areas:
+        "tabs-container info-btn-cntr"
+        "tab-btn-contnr info-btn-cntr";
+    background-color: #333333;
     padding: 10px;
-}
-
-.nav-container table {
-    width: 100%;
-}
-
-.navbutton {
-    color: white;
-    text-decoration: none;
-    padding: 8px 16px;
-    margin-right: 10px;
-}
-
-.navbutton:hover {
-    background-color: #555;
 }
 
 .flash-container {
     background-color: #ffdddd;
     border: 1px solid #cc0000;
     padding: 10px;
-    margin: 10px 0;
+    margin: 10px 10px;
     color: #cc0000;
+    border-radius: 8px;
 }
 
 /* Workspace Container */
@@ -68,9 +60,13 @@ body {
 
 /* Tabs Container */
 .tabs-container {
-    display: flex;
     background-color: #333;
     border-bottom: 2px solid #ac2b37;
+}
+
+.tabs {
+    grid-column: 1;
+    grid-row: 1;
 }
 
 .tab {
@@ -107,17 +103,22 @@ body {
 }
 
 /* Tab Content */
-.tab-content {
+.nav-item.tab-content {
+    grid-column: 1;
+    grid-row: 2;
     background-color: white;
-    padding: 20px;
+    margin-top: 2px;
+    padding: 15px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .button-group {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    display: grid;
+    grid-auto-columns: 140px;
+    grid-auto-rows: 50px;
+    grid-auto-flow: column;
+    gap: 1em;
 }
 
 .action-btn {
@@ -177,9 +178,13 @@ body {
 }
 
 /* Info Button */
-.info-container {
-    display: flex;
-    justify-content: flex-end;
+.nav-item.info-btn-contnr {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-column: 2;
+    grid-row: 1 / 2;
+
 }
 
 .info-btn {

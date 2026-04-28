@@ -9,26 +9,85 @@
     </head>
     
     <body>
-        <div class="nav-container">
-            <table>
-                <tr>
-                    <td><a href="{{ url_for('main.index') }}" class="navbutton">Home</a></td>
-                </tr>
-            </table>
-        </div>
-        <br>
+        <!-- Tabs Row (a la microsoft ribbon) -->
+        <nav class="nav-container">
+            <div class="nav-item tabs" style="grid-area: tabs-container">
+                <a href="{{ url_for('main.file_tab') }}"
+                   class="tab {% block   file_tab_status %}{% endblock %}">
+                   File
+                </a>
+                <a href="{{ url_for('main.index') }}"
+                   class="tab {% block  bones_tab_status %}{% endblock %}">
+                   Bones
+                </a>
+                <a href="{{ url_for('main.not_implemented') }}"
+                   class="tab {% block   skin_tab_status %}{% endblock %}">
+                   Skin
+                </a>
+                <a href="{{ url_for('main.not_implemented') }}"
+                   class="tab {% block constr_tab_status %}{% endblock %}">
+                   Constraints
+                </a>
+                <a href="{{ url_for('main.not_implemented') }}"
+                   class="tab {% block   test_tab_status %}{% endblock %}">
+                   Testing
+                </a>
+                <a href="{{ url_for('main.not_implemented') }}"
+                   class="tab {% block  ctrls_tab_status %}{% endblock %}">
+                   Controls/Gizmos
+                </a>
+            </div>
+            <!-- Tab Buttons (specified in child templates) -->
+            <div class="nav-item tab-content" style="grid-area: tab-btn-contnr">
+                {% block   file_tab_btns %}{% endblock %}
+                {% block  bones_tab_btns %}{% endblock %}
+                {% block   skin_tab_btns %}{% endblock %}
+                {% block constr_tab_btns %}{% endblock %}
+                {% block   test_tab_btns %}{% endblock %}
+                {% block  ctrls_tab_btns %}{% endblock %}
+            </div>
+            <!-- Info Button (Eye of Terpsichore Feature referenced in Assignment 4 Part A/B) -->
+            <div class="nav-item info-btn-contnr" style="grid-area: info-btn-cntr">
+                <button class="info-btn">Info</button>
+            </div>
+        </nav>
         <div>
             {% with messages = get_flashed_messages() %}
             {% if messages %}
             {% for message in messages %}
-                <div style="height: 20px"></div>
                 <div class='flash-container'>{{ message }}</div>
             {% endfor %}
             {% endif %}
             {% endwith %}
-            
-            {% block content %} {% endblock %}
-            <br>
+
+            <div class="workspace-container">
+                <!-- THIS BUTTON'S FUNCTIONALITY HAS BEEN DEEMED UNNECESSARY
+                 AND WILL LIKELY BE DELETED UPON THE NEXT COMMIT -->
+                    <!-- Top-left toggle button -->
+                    <!-- <div class="toggle-container">
+                        <button class="toggle-btn" title="Switch between JS and Route-based tabs">JS/Routes</button>
+                    </div> -->
+                
+                <!-- Main content area -->
+                <div class="main-workspace">
+                    <!-- Left panel: Tab content + Objects & Operations -->
+                    <div class="left-panel">
+                        <!-- Objects & Operations panel -->
+                        <div class="objects-operations">
+                            <h3>Objects & Operations</h3>
+                        </div>
+                    </div>
+                    
+                    <!-- Right panel: Placeholder for 3D viewport + Info button -->
+                    <div class="right-panel">
+                        <div class="viewport-placeholder">
+                            <p>3D Viewport Area</p>
+                            <p>(Coming Soon)</p>
+                        </div>
+                    </div>
+                </div>
+                <br>
+            </div>
         </div>
     </body>
 </html>
