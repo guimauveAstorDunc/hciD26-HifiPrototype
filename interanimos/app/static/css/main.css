@@ -1,11 +1,26 @@
 /* Interanimos - Main Stylesheet */
 /* Following the style of the original TAapp project */
 
+/* :root found from Google AI Overview */
+:root {
+    --tab-bg-color: #2b3b34;
+    --def-txt-color: #ebf4eb;
+    --lighter-grey-green: #f9fafa;
+    --light-grey-green: #dde3e2;
+    --mid-grey-green: #60766f;
+    --low-grey-green: #3e4c47;
+    --active-tab-color: #064125;
+    --highlight-green: #009966;
+    --flash-msg-color: #4c0a21;
+    --flash-msg-bg: #f7e9f1;
+    --over-here-color: #be1952;
+}
+
 body {
     font-family: 'Cairo', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f5f5f5;
+    background-color: var(--light-grey-green);
 }
 
 .nav-container {
@@ -15,7 +30,7 @@ body {
     grid-template-areas:
         "tabs-container info-btn-cntr"
         "tab-btn-contnr info-btn-cntr";
-    background-color: #333333;
+    background-color: var(--tab-bg-color);
     padding: 10px;
 }
 
@@ -33,7 +48,7 @@ body {
     display: flex;
     flex-direction: column;
     height: 100vh;
-    background-color: #e0e0e0;
+    background-color: var(--light-grey-green);
 }
 
 /* Toggle Button (top-left) */
@@ -60,7 +75,7 @@ body {
 
 /* Tabs Container */
 .tabs-container {
-    background-color: #333;
+    background-color: var(--tab-bg-color);
     border-bottom: 2px solid #ac2b37;
 }
 
@@ -74,23 +89,30 @@ body {
     color: white;
     text-decoration: none;
     font-size: 14px;
-    transition: background-color 0.3s;
+    font-weight: 500;
+    transition: background-color 0.3s, border-bottom 0.3s, font-weight 0.3s, color 0.3s;
 }
 
 .tab:hover {
-    background-color: #555;
+    background-color: var(--low-grey-green);
+    font-weight: 600;
+    color: white;
+    border-bottom: 3px solid var(--low-grey-green);
 }
 
 .tab.active {
-    background-color: #ac2b37;
-    border-bottom: 3px solid white;
+    background-color: var(--lighter-grey-green);
+    color: var(--active-tab-color);
+    font-weight: 800;
+    border-bottom: 3px solid var(--lighter-grey-green);
+    border-radius: 5px;
 }
 
 /* Main Workspace */
 .main-workspace {
     display: flex;
     flex: 1;
-    padding: 20px;
+    padding: 15px;
     gap: 20px;
 }
 
@@ -106,7 +128,7 @@ body {
 .nav-item.tab-content {
     grid-column: 1;
     grid-row: 2;
-    background-color: white;
+    background-color: var(--lighter-grey-green);
     margin-top: 2px;
     padding: 15px;
     border-radius: 5px;
@@ -122,7 +144,7 @@ body {
 }
 
 .action-btn {
-    background-color: #444;
+    background-color: var(--low-grey-green);
     color: white;
     border: none;
     padding: 12px 20px;
@@ -135,15 +157,15 @@ body {
 }
 
 .action-btn:hover {
-    background-color: #ac2b37;
+    background-color: var(--over-here-color);
 }
 
 /* Objects & Operations */
 .objects-operations {
-    background-color: white;
+    background-color: var(--lighter-grey-green);
     padding: 20px;
     border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(6, 65, 37, 0.102);
     min-height: 150px;
 }
 
@@ -166,6 +188,7 @@ body {
     flex: 1;
     background-color: #1a1a1a;
     border: 2px solid #333;
+    border-radius: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -188,20 +211,23 @@ body {
 }
 
 .info-btn {
+    position: relative;
+    left: 7px;
     width: 80px;
     height: 80px;
-    background-color: #444;
+    background-color: var(--highlight-green);
     color: white;
     border: none;
     cursor: pointer;
     font-family: 'Cairo', Arial, sans-serif;
     font-size: 16px;
+    font-weight: bold;
     border-radius: 5px;
     transition: background-color 0.3s;
 }
 
 .info-btn:hover {
-    background-color: #ac2b37;
+    background-color: var(--over-here-color);
 }
 
 /* Form elements (for future use) */
@@ -219,20 +245,6 @@ body {
     margin-bottom: 10px;
     width: 100%;
     box-sizing: border-box;
-}
-
-.subbutton {
-    background-color: #ac2b37;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-family: 'Cairo', Arial, sans-serif;
-    border-radius: 3px;
-}
-
-.subbutton:hover {
-    background-color: #8a2230;
 }
 
 .pagetitle {
