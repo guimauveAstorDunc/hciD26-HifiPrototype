@@ -16,7 +16,7 @@
                    class="tab {% block   file_tab_status %}{% endblock %}">
                    File
                 </a>
-                <a href="{{ url_for('main.index') }}"
+                <a href="{{ url_for('main.bone_tab') }}"
                    class="tab {% block  bones_tab_status %}{% endblock %}">
                    Bones
                 </a>
@@ -67,7 +67,8 @@
                     <div class="left-panel">
                         <!-- Objects & Operations panel -->
                         <div class="objects-operations">
-                            <h3>Objects & Operations</h3>
+                            {% block object_operations_content %}<h3>Objects & Operations</h3>{% endblock %}
+                            {% block left_panel_content %}{% endblock %}
                         </div>
                     </div>
                     

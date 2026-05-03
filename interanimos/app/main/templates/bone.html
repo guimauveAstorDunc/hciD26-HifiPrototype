@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+<!-- Telling the Workspace that the Bones Tab is Active when This Page is Loaded -->
+        <!-- Understanding of Nameable Blocks from Google AI Overview. -->
+{% block bones_tab_status %}active{% endblock %}
+
+{% block bones_tab_btns %}
+<!-- Bones Tab Content -->
+<div class="button-group">
+    <button class="action-btn"><a href="{{ url_for('main.add_root_bone') }}" style="color: #ebf4eb; text-decoration: none;">Add Root Bone</a></button>
+    <button class="action-btn"><a href="{{ url_for('main.add_root_bone') }}" style="color: #ebf4eb; text-decoration: none;">Add Bone</a></button>
+    <button class="action-btn"><a>Add Arm</a></button>
+    <button class="action-btn"><a>Add Leg</a></button>
+    <button class="action-btn"><a>Add IK Chain</a></button>
+</div>
+{% endblock %}
+
+{% block viewport_content %}
+{% endblock %}

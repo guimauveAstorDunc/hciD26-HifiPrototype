@@ -1,20 +1,17 @@
 {% extends "base.html" %}
 
-<!-- Telling the Workspace that the Bones Tab is Active when This Page is Loaded -->
-        <!-- Understanding of Nameable Blocks from Google AI Overview. -->
-{% block bones_tab_status %}active{% endblock %}
-
 {% block bones_tab_btns %}
-<!-- Bones Tab Content -->
 <div class="button-group">
-    <button class="action-btn">Add Root Bone</button>
-    <button class="action-btn">Add Bone</button>
-    <button class="action-btn">Add Arm</button>
-    <button class="action-btn">Add Leg</button>
-    <button class="action-btn">Add IK Chain</button>
+    <button class="action-btn"><a href="{{ url_for('main.bone_tab') }}" style="color: #ebf4eb; text-decoration: none;">Go to Prototype</a></button>
 </div>
 {% endblock %}
 
-{% block viewport_content %}
-    {% include "_bone.html" %}
+{% block object_operations_content %}{% endblock %}
+
+{% block left_panel_content %}
+<p><b>Project Name:</b> Interanimos</p>
+<p><b>Created by:</b> Casey Carta</p>
+<p><b>AI Usage:</b> Concerning, Shameful, and Significant</p>
+<p><b>Target Users:</b> Beginner 3D Artists</p>
+<p><b>State of the Prototype:</b> Beyond Unfinished. A Compelte Failure.</p>
 {% endblock %}

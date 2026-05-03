@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+<!-- Telling the Workspace that the Bones Tab is Active when This Page is Loaded -->
+        <!-- Understanding of Nameable Blocks from Google AI Overview. -->
+{% block bones_tab_status %}active{% endblock %}
+
+{% block bones_tab_btns %}
+<!-- Bones Tab Content -->
+<div class="button-group">
+    <button class="action-btn">Add Root Bone</button>
+    <button class="action-btn">Add Bone</button>
+    <button class="action-btn">Add Arm</button>
+    <button class="action-btn">Add Leg</button>
+    <button class="action-btn">Add IK Chain</button>
+</div>
+{% endblock %}
+
+{% block viewport_content %}
+    <!-- img tag starts in "templates" directory. -->
+    <img class="bone root-bone" src="../../static/img_assets/bone.png" alt="root_bone" aria-label="Root Bone">
+{% endblock %}

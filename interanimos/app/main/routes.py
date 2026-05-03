@@ -10,9 +10,11 @@ TAB_NAMES = ['File', 'Bones', 'Skin', 'Constraints', 'Testing', 'Controls/Gizmos
 @main.route('/')
 @main.route('/index')
 def index():
-    query = sqla.select(TabType)
-    tabs = db.session.scalars(query).all()
-    return render_template('index.html', title='Bones', tabs=tabs)
+    return render_template('index.html', title='Intro')
+
+@main.route('/tab/bone')
+def bone_tab():
+    return render_template('bone.html', title='Bones')
 
 @main.route('/tab/file')
 def file_tab():
@@ -32,14 +34,6 @@ def not_implemented():
           "Please select another option instead.")
     return redirect(url_for('main.index'))
 
-@main.route('/tab/<tab_name>')
-def switch_tab(tab_name):
-    query = sqla.select(TabType).where(TabType.name == tab_name)
-    tab_type = db.session.scalars(query).first()
-    
-    if tab_type:
-        tab_click = TabClick(tab=tab_type, occurred_at=datetime.utcnow())
-        db.session.add(tab_click)
-        db.session.commit()
-    
-    return redirect(url_for('main.index'))
+@main.route('/bone/add/root')
+def add_root_bone():
+    return render_template('root_bone_added.html', title='Bones')
